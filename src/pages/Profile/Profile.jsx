@@ -9,7 +9,6 @@ const Profile = () => {
   return (
     <div className="Profile">
         <ProfileLeft/>
-
         <div className="Profile-center">
           <ProfileCard/>
           <PostSide/>
