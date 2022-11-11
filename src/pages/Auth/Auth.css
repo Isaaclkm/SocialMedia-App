@@ -75,3 +75,15 @@
     height: 2rem;
     align-self: flex-end;
 }
+
+.authForm{
+    background-color: var(--cardColor);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.authForm > div{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
