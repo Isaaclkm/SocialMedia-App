@@ -93,7 +93,7 @@ function SignUp(){
                 </div>
 
                 <div>
-            <span style={{fontSize: '12px'}}>Alreadyhave an account. Login!</span>
+            <span style={{fontSize: '12px'}}>Already have an account. Login!</span>
                 </div>
                 <button className='button infoButton' type='s'>Signup</button>
 
