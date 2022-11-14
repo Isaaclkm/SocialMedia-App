@@ -56,6 +56,15 @@ function ProfileModal({modalOpened, setModalOpened}) {
         <div>
             <input type="text" className='infoInput' placeholder='Relantionship Status'/>
         </div>
+
+        <div>
+            Profile Images i
+            <input type="file" name='profileImg' />
+            Cover Image
+            <input type="file" name='coverImg' />
+        </div>
+
+        <button className="button infoButton" >Update</button>
       </form>
     </Modal>
   );
