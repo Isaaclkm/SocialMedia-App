@@ -58,7 +58,7 @@ function ProfileModal({modalOpened, setModalOpened}) {
         </div>
 
         <div>
-            Profile Images
+            Profile Images dol
             <input type="file" name='profileImg' />
             Cover Image
             <input type="file" name='coverImg' />
