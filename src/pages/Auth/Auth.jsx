@@ -4,6 +4,7 @@ import Logo from '../../img/logo.png'
 const Auth = () => {
     const [isSignUp, setIsSignUp ] = useState(false)
 
+    const [data, setData] = useState({firstname: "", lastname: "", password: "", confirmpass: "", username: ""})
   return (
     <div className="Auth">
         {/*Left Side */}
