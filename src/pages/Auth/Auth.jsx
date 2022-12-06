@@ -5,7 +5,11 @@ const Auth = () => {
     const [isSignUp, setIsSignUp ] = useState(false)
 
     const [data, setData] = useState({firstname: "", lastname: "", password: "", confirmpass: "", username: ""})
-  return (
+ 
+    const handleChange = () =>{
+        setData({...data, [e.target.name]: e.target.value})
+    }
+    return (
     <div className="Auth">
         {/*Left Side */}
         <div className="a-left">
