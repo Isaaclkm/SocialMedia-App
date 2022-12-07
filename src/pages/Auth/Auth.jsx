@@ -10,7 +10,7 @@ const Auth = () => {
         setData({...data, [e.target.name]: e.target.value})
     }
     return (
-    <div className="Auth">
+    <div className="Auth">hol 
         {/*Left Side */}
         <div className="a-left">
             <img src={Logo} alt="" />
