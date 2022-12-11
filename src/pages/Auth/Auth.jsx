@@ -11,7 +11,7 @@ const Auth = () => {
     }
     return (
     <div className="Auth">
-        {/*Left Side of the page*/}
+        {/*Left Side */}
         <div className="a-left">
             <img src={Logo} alt="" />
             <div className="Webname">
