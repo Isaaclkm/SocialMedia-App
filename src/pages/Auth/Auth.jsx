@@ -4,11 +4,43 @@ import Logo from '../../img/logo.png'
 const Auth = () => {
     const [isSignUp, setIsSignUp ] = useState(false)
 
-    const [data, setData] = useState({firstname: "", lastname: "", password: "", confirmpass: "", username: ""})
- 
-    const handleChange = () =>{
+    const [data, setData] = useState({
+        firstname: "", 
+        lastname: "", 
+        password: "", 
+        confirmpass: "", 
+        username: ""
+    });
+    
+    const [confirmPass, setConfirmPass] = useState(true)
+    const handleChange = (e) =>{
         setData({...data, [e.target.name]: e.target.value})
+    };
+
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+
+        if(isSignUp)
+        {
+            if(data.password !== data.confirmpass)
+            {
+                setConfirmPass(false)
+            } 
+        }
     }
+
+    const resetForm = () => {
+        setConfirmPass(true);
+        setData({
+        firstname: "", 
+        lastname: "", 
+        password: "", 
+        confirmpass: "", 
+        username: ""
+        })
+    }
+
     return (
     <div className="Auth">
         {/*Left Side */}
@@ -21,7 +53,7 @@ const Auth = () => {
         </div>
         {/* Right Side */}
         <div className='a-right'>
-            <form className="infoForm authForm">
+            <form className="infoForm authForm" onSubmit={handleSubmit}>
 
 
                 <h3>{isSignUp ? "Sing Up": "Login In"}</h3>
@@ -33,12 +65,18 @@ const Auth = () => {
                     type="text" 
                     placeholder='First Name'
                     className='infoInput' 
-                    name='firstname'/>
+                    name='firstname'
+                    onChange = {handleChange}
+                    value={data.firstname}
+                    />
                     <input 
                     type="text" 
                     placeholder='Last Name'
                     className='infoInput' 
-                    name='lastname'/>
+                    name='lastname'
+                    onChange = {handleChange}
+                    value={data.lastname}
+                    />
                     </div>
                     }
                     
@@ -48,27 +86,38 @@ const Auth = () => {
                     type="text" 
                     placeholder='Username'
                     className='infoInput' 
-                    name='username'/>
+                    name='username'
+                    onChange = {handleChange}
+                    value={data.username}
+                    />
                 </div>
                 <div>
                     <input 
-                    type="text" 
+                    type="password" 
                     placeholder='Password'
                     className='infoInput' 
                     name='password'
+                    onChange = {handleChange}
+                    value={data.password}
                     />
                     {isSignUp &&
                      <input 
-                     type="text" 
+                     type="password" 
                      placeholder='Confirm password'
                      className='infoInput' 
-                     name='confirmpassword'/>
+                     name='confirmpass'
+                     onChange = {handleChange}
+                     value={data.confirmpass}
+                     />
                     }
                    
                 </div>
-
+                    <span style={{display: confirmPass? "none": "block", color: 'red', fonstSize: '12px', alignSelf: 'flex-end', marginRight: '5px'}}>
+                        * Confirm password is not the same. 
+                    </span>
                 <div>
-            <span style={{fontSize: '12px', cursor: "pointer"}} onClick = {()=> setIsSignUp((prev)=> !prev)}>
+            <span style={{fontSize: '12px', cursor: "pointer"}} 
+                 onClick = {() => {setIsSignUp((prev)=> !prev); resetForm()}}>
                 {isSignUp ? `Already have an account. Login!
 `: `Don't have an account? Sign Up`}</span>
                 </div>
