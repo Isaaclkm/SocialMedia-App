@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import './Auth.css'
 import Logo from '../../img/logo.png'
+import {useDispatch} from 'react-redux'
+
 const Auth = () => {
     const [isSignUp, setIsSignUp ] = useState(false)
-
+    const dispatch = useDispatch()
     const [data, setData] = useState({
         firstname: "", 
         lastname: "", 
@@ -23,10 +25,12 @@ const Auth = () => {
 
         if(isSignUp)
         {
-            if(data.password !== data.confirmpass)
-            {
-                setConfirmPass(false)
-            } 
+           data.password === data.confirmpass 
+           ? dispatch(singUp(data)) 
+           : setConfirmPass(false)
+        }else 
+        {
+            dispatch(logIn(data))
         }
     }
 
