@@ -19,7 +19,7 @@ const Auth = () => {
         setData({...data, [e.target.name]: e.target.value})
     };
 
-
+// comment
     const handleSubmit = (e) =>{
         e.preventDefault();
 
