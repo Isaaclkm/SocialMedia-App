@@ -21,7 +21,7 @@ import{
             const serializedStore = window.localStorage.getItem('store');
             if(serializedStore === null) return undefined;
             return JSON.parse(serializedStore)
-        } catch (error) {
+        } catch (e) {
             console.log(e);
             return undefined;
         }
