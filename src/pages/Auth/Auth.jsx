@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import './Auth.css'
 import Logo from '../../img/logo.png'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { logIn, signUp } from '../../actions/AuthAction'
 
 const Auth = () => {
+    const loading = useSelector((state) => state.authReducer.loading)
     const [isSignUp, setIsSignUp ] = useState(false)
     const dispatch = useDispatch()
     const [data, setData] = useState({
@@ -135,57 +136,5 @@ const Auth = () => {
 }
 
 
-function SignUp(){
-    
-    return(
-        <div className='a-right'>
-            <form className="infoForm authForm">
-
-
-                <h3>Sign up</h3>
-
-                <div>
-                    <input 
-                    type="text" 
-                    placeholder='First Name'
-                    className='infoInput' 
-                    name='firstname'/>
-                    <input 
-                    type="text" 
-                    placeholder='Last Name'
-                    className='infoInput' 
-                    name='lastname'/>
-                </div>
-                <div>
-                    <input 
-                    type="text" 
-                    placeholder='Username'
-                    className='infoInput' 
-                    name='username'/>
-                </div>
-                <div>
-                    <input 
-                    type="text" 
-                    placeholder='Password'
-                    className='infoInput' 
-                    name='password'
-                    />
-                    <input 
-                    type="text" 
-                    placeholder='Confirm password'
-                    className='infoInput' 
-                    name='confirmpassword'/>
-                </div>
-
-                <div>
-            <span style={{fontSize: '12px'}}>
-                </span>
-                </div>
-                <button className='button infoButton' type='s'>Signup</button>
-
-            </form>
-        </div>
-    )
-}
 
 export default Auth
