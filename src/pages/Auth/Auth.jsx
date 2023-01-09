@@ -3,7 +3,7 @@ import './Auth.css'
 import Logo from '../../img/logo.png'
 import {useDispatch, useSelector} from 'react-redux'
 import { logIn, signUp } from '../../actions/AuthAction'
-//const Auth
+//const 
 const Auth = () => {
     const loading = useSelector((state) => state.authReducer.loading)
     const [isSignUp, setIsSignUp ] = useState(false)
