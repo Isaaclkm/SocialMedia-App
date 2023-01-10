@@ -3,11 +3,12 @@ import './Auth.css'
 import Logo from '../../img/logo.png'
 import {useDispatch, useSelector} from 'react-redux'
 import { logIn, signUp } from '../../actions/AuthAction'
-//const 
+//const
 const Auth = () => {
+    const dispatch = useDispatch()
     const loading = useSelector((state) => state.authReducer.loading)
     const [isSignUp, setIsSignUp ] = useState(false)
-    const dispatch = useDispatch()
+    console.log(loading)
     const [data, setData] = useState({
         firstname: "", 
         lastname: "", 
@@ -122,12 +123,14 @@ const Auth = () => {
                         * Confirm password is not the same. 
                     </span>
                 <div>
-            <span style={{fontSize: '12px', cursor: "pointer"}} 
-                 onClick = {() => {setIsSignUp((prev)=> !prev); resetForm()}}>
-                {isSignUp ? `Already have an account. Login!
-`: `Don't have an account? Sign Up`}</span>
+                    <span style={{fontSize: '12px', cursor: "pointer"}} onClick = {() => {setIsSignUp((prev)=> !prev); resetForm()}}>
+                        {isSignUp ? `Already have an account. Login!
+                        `: `Don't have an account? Sign Up`}
+                    </span>
                 </div>
-                <button className='button infoButton' type='s'>{isSignUp ? "Sing Up": "Login In"}</button>
+                <button className='button infoButton' type='submit' disabled={loading}>
+                    {loading? "Loading...": isSignUp ? "Sing Up": "Login In"}
+                </button>
 
             </form>
         </div>
